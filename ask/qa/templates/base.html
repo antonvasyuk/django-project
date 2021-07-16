@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Q&A</title>
+</head>
+<body>
+	<div class="top">
+		<div class="logo">
+			<h1><a href="/">Main Page</a></h1>
+		</div>
+		<div class="login_menu">
+			{% if user.id %}
+			<p> {{ user }} </p>
+			<a href="/logout/">Log Out</a>
+			{% endif %}
+			{% if not user.id %}
+			<a href="/login/">Log In</a>
+			<a href="/signup/">Sign Up</a>
+			{% endif %}
+		</div>
+
+	</div>
+	<div>
+		<br> <hr> <br>
+	</div>
+
+	<div class="container">
+		<nav>
+			<h2>Navigation</h2>
+			<a href="/new/">New</a>
+			<a href="/popular/">Popular</a>
+			<a href="/ask/">Ask</a>
+		</nav>
+		<div>
+			<br> <hr> <br>
+		</div>
+		{% block content %} {% endblock %}
+	</div>
+
+	<div>
+		<br> <hr> <br>
+	</div>
+</body>
+</html>
